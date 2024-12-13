@@ -4,16 +4,19 @@
 
 Bu proje, C programlama dili kullanılarak geliştirilmiş bir taş-kağıt-makas oyunudur. Uygulama, sunucu-istemci mimarisinde çalışır ve TCP/IP protokolü üzerinden iletişim kurar. Proje iki ana bileşenden oluşmaktadır:
 
-   <h3>1. Sunucu (Server):<h3> Gelen istemci bağlantılarını yönetir, istemcilerden gelen hamlelere karşılık verir ve oyunun skorlarını tutar.
-   2. İstemci (Client): Kullanıcıdan hamle alır ve bu hamleleri sunucuya gönderir, ardından sunucudan gelen cevapları görüntüler.
-Kullanılan Teknolojiler ve Dil Özellikleri
-Programlama Dili: C
-Kütüphaneler:
-winsock2.h: Windows işletim sistemi için TCP/IP soket programlamayı destekler.
-time.h: Rastgele sayı üretimi ve zamanla ilgili işlemler için kullanılır.
-utils.h: Geçerli hamle kontrolü, küçük harfe çevirme ve kazananı belirleme gibi ortak işlevleri içerir.
-Protokol: TCP/IP
-İstemci-Sunucu İletişimi: Sunucu, birden fazla istemciyi eşzamanlı olarak işlemek için iş parçacıklarını (CreateThread) kullanır.
+   <h3>1. Sunucu (Server):<h3>
+      Gelen istemci bağlantılarını yönetir, istemcilerden gelen hamlelere karşılık verir ve oyunun skorlarını tutar.
+  <h3> 2. İstemci (Client):<h3>
+     Kullanıcıdan hamle alır ve bu hamleleri sunucuya gönderir, ardından sunucudan gelen cevapları görüntüler.
+     
+<h3>Kullanılan Teknolojiler ve Dil Özellikleri<h3>
+   -<h2>Programlama Dili:<h2> C
+   -<h2>Kütüphaneler:<h2>
+   -<h2>winsock2.h:<h2> Windows işletim sistemi için TCP/IP soket programlamayı destekler.
+   -<h2>time.h:<h2> Rastgele sayı üretimi ve zamanla ilgili işlemler için kullanılır.
+   -<h2>utils.h:<h2> Geçerli hamle kontrolü, küçük harfe çevirme ve kazananı belirleme gibi ortak    -      -işlevleri içerir.
+   -<h2>Protokol:<h2> TCP/IP
+<h2>İstemci-Sunucu İletişimi: <h2>Sunucu, birden fazla istemciyi eşzamanlı olarak işlemek için iş parçacıklarını (CreateThread) kullanır.
 Sunucu (Server)
 Sunucu programı şu işlevleri yerine getirir:
 
