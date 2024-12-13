@@ -1,4 +1,4 @@
-# Taş-Kağıt-Makas Sunucu ve İstemci oyunu
+# Taş-Kağıt-Makas Sunucu ve İstemci Oyunu
 
 Bu proje, C programlama dili kullanılarak geliştirilmiş bir taş-kağıt-makas oyunudur. Uygulama, sunucu-istemci mimarisinde çalışır ve TCP/IP protokolü üzerinden iletişim kurar. Proje iki ana bileşenden oluşmaktadır:
 
