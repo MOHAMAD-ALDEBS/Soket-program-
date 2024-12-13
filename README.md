@@ -1,12 +1,11 @@
 # Soket-program-
 
-Aşağıda, kodların yaptığı işlemler ve kullanılan dilin özelliklerini açıklayan ayrıntılı bir açıklama bulunmaktadır. Bu metni GitHub'da README.md dosyası olarak kullanabilirsiniz.
+# Taş-Kağıt-Makas Sunucu ve İstemci Uygulaması
 
-Taş-Kağıt-Makas Sunucu ve İstemci Uygulaması
 Bu proje, C programlama dili kullanılarak geliştirilmiş bir taş-kağıt-makas oyunudur. Uygulama, sunucu-istemci mimarisinde çalışır ve TCP/IP protokolü üzerinden iletişim kurar. Proje iki ana bileşenden oluşmaktadır:
 
-Sunucu (Server): Gelen istemci bağlantılarını yönetir, istemcilerden gelen hamlelere karşılık verir ve oyunun skorlarını tutar.
-İstemci (Client): Kullanıcıdan hamle alır ve bu hamleleri sunucuya gönderir, ardından sunucudan gelen cevapları görüntüler.
+   <h3>1. Sunucu (Server):<h3> Gelen istemci bağlantılarını yönetir, istemcilerden gelen hamlelere karşılık verir ve oyunun skorlarını tutar.
+   2. İstemci (Client): Kullanıcıdan hamle alır ve bu hamleleri sunucuya gönderir, ardından sunucudan gelen cevapları görüntüler.
 Kullanılan Teknolojiler ve Dil Özellikleri
 Programlama Dili: C
 Kütüphaneler:
