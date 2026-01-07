@@ -1,59 +1,59 @@
-# Taş-Kağıt-Makas Sunucu ve İstemci Oyunu
+# Rock-Paper-Scissors Server and Client Game
 
-Bu proje, C programlama dili kullanılarak geliştirilmiş bir taş-kağıt-makas oyunudur. Uygulama, sunucu-istemci mimarisinde çalışır ve TCP/IP protokolü üzerinden iletişim kurar. Proje iki ana bileşenden oluşmaktadır:
+This project is a rock-paper-scissors game developed using the C programming language. The application operates with a server-client architecture and communicates over the TCP/IP protocol. The project consists of two main components:
 
-1. **Sunucu (Server)**: Gelen istemci bağlantılarını yönetir, istemcilerden gelen hamlelere karşılık verir ve oyunun skorlarını tutar.
-2. **İstemci (Client)**: Kullanıcıdan hamle alır ve bu hamleleri sunucuya gönderir, ardından sunucudan gelen cevapları görüntüler.
+1. **Server**: Manages incoming client connections, responds to moves received from clients, and keeps track of game scores.
+2. **Client**: Receives moves from the user and sends them to the server, then displays the responses received from the server.
 
-## Kullanılan Teknolojiler ve Dil Özellikleri
+## Technologies Used and Language Features
 
-- **Programlama Dili**: C
-- **Kütüphaneler**:
-  - `winsock2.h`: Windows işletim sistemi için TCP/IP soket programlamayı destekler.
-  - `time.h`: Rastgele sayı üretimi ve zamanla ilgili işlemler için kullanılır.
-  - `utils.h`: Geçerli hamle kontrolü, küçük harfe çevirme ve kazananı belirleme gibi ortak işlevleri içerir.
-- **Protokol**: TCP/IP
-- **İstemci-Sunucu İletişimi**: Sunucu, birden fazla istemciyi eşzamanlı olarak işlemek için iş parçacıklarını (`CreateThread`) kullanır.
+- **Programming Language**: C  
+- **Libraries**:
+  - `winsock2.h`: Supports TCP/IP socket programming for the Windows operating system.
+  - `time.h`: Used for random number generation and time-related operations.
+  - `utils.h`: Contains common functions such as valid move checking, converting to lowercase, and determining the winner.
+- **Protocol**: TCP/IP  
+- **Client-Server Communication**: The server uses threads (`CreateThread`) to handle multiple clients concurrently.
 
-## Sunucu (Server)
+## Server
 
-Sunucu programı şu işlevleri yerine getirir:
+The server program performs the following functions:
 
-1. **Başlatma ve Dinleme**:
-   - `bind` ile belirli bir IP ve port üzerinden bağlanır.
-   - `listen` komutuyla istemci bağlantılarını bekler.
+1. **Initialization and Listening**:
+   - Binds to a specific IP and port using `bind`.
+   - Waits for client connections using the `listen` command.
 
-2. **Bağlantı Yönetimi**:
-   - Gelen her istemci bağlantısı için bir iş parçacığı oluşturulur.
-   - Bağlantı sırasında istemciden gelen mesajlar okunur ve işlenir.
+2. **Connection Management**:
+   - A separate thread is created for each incoming client connection.
+   - Messages received from the client are read and processed during the connection.
 
-3. **Oyun Mantığı**:
-   - Gelen hamlelerin geçerliliğini kontrol eder.
-   - Sunucunun rastgele bir hamle yapmasını sağlar.
-   - Hamleleri karşılaştırarak kazananı belirler.
-   - Skorları takip eder ve istemciye sonuçları gönderir.
+3. **Game Logic**:
+   - Checks the validity of incoming moves.
+   - Generates a random move for the server.
+   - Compares moves to determine the winner.
+   - Tracks scores and sends the results to the client.
 
-4. **Komutlar**:
-   - `yardim`: Geçerli komutları listeler.
-   - `skor`: O anki oyuncu ve sunucu skorlarını gösterir.
-   - `exit`: İstemci bağlantısını sonlandırır.
+4. **Commands**:
+   - `yardim`: Lists available commands.
+   - `skor`: Displays the current player and server scores.
+   - `exit`: Terminates the client connection.
 
-### Öne Çıkan Özellikler
+### Key Features
 
-- Birden fazla istemciyi desteklemek için çoklu iş parçacığı yönetimi.
-- Skor takibi için `Score` yapısı kullanımı.
-- Geçersiz hamleleri tespit ederek uygun mesaj gönderimi.
+- Multithreaded management to support multiple clients.
+- Use of a `Score` structure for score tracking.
+- Detection of invalid moves and sending appropriate messages.
 
-## İstemci (Client)
+## Client
 
-İstemci programı şu işlevleri yerine getirir:
+The client program performs the following functions:
 
-1. **Bağlantı Kurma**:
-   - Sunucuya bağlanır ve kullanıcı hamlelerini sunucuya gönderir.
+1. **Establishing a Connection**:
+   - Connects to the server and sends user moves to the server.
 
-2. **Kullanıcı Etkileşimi**:
-   - Kullanıcıdan hamle alır: `tas`, `kagit`, `makas`, `yardim`, `skor`, `exit`.
-   - Sunucudan gelen mesajları okur ve ekrana yazdırır.
+2. **User Interaction**:
+   - Receives moves from the user: `tas`, `kagit`, `makas`, `yardim`, `skor`, `exit`.
+   - Reads messages from the server and displays them on the screen.
 
-3. **Oyun Akışı**:
-   - Kullanıcı her hamle yaptığında, sunucu ile iletişim kurar ve sonucu gösterir.
+3. **Game Flow**:
+   - Each time the user makes a move, the client communicates with the server and displays the result.
